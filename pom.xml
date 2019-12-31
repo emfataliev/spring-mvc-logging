@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>ru.emfataliev</groupId>
+  <groupId>com.github.emfataliev</groupId>
   <artifactId>spring-mvc-logging</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -30,12 +30,6 @@
       <version>1.18.10</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.8.6</version>
-    </dependency>
   </dependencies>
-
 
 </project>

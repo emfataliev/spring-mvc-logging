@@ -1,23 +1,23 @@
-package ru.emfataliev.response;
+package com.github.emfataliev.response;
 
+import com.github.emfataliev.HttpServletContent;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.web.util.ContentCachingResponseWrapper;
-import ru.emfataliev.HttpServletContent;
-import ru.emfataliev.RepresentableAsString;
 
 @RequiredArgsConstructor
-class ResponsePayload implements RepresentableAsString {
+class ResponsePayload {
 
     private final ContentCachingResponseWrapper response;
+    private final int payloadMaxLength;
 
-    @Override
     @SneakyThrows
     public String asString() {
         if (response != null) {
             String result = new HttpServletContent(
                     response.getContentAsByteArray(),
-                    response.getCharacterEncoding()
+                    response.getCharacterEncoding(),
+                    payloadMaxLength
             ).asString();
             response.copyBodyToResponse();
             return result;

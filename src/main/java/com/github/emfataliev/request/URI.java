@@ -1,15 +1,13 @@
-package ru.emfataliev.request;
+package com.github.emfataliev.request;
 
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.util.ContentCachingRequestWrapper;
-import ru.emfataliev.RepresentableAsString;
 
 @RequiredArgsConstructor
-class URI implements RepresentableAsString {
+class URI {
 
-    private final ContentCachingRequestWrapper request;
+    private final HttpServletRequest request;
 
-    @Override
     public String asString() {
         String queryString = request.getQueryString();
         if (queryString != null) {

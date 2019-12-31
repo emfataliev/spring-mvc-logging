@@ -1,13 +1,9 @@
-package ru.emfataliev.request;
+package com.github.emfataliev.request;
 
 import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 
-/**
- * @author e.fataliev
- * @since 25.11.2019
- */
 @RequiredArgsConstructor
 public class ContentCachedRequest {
 

@@ -1,31 +1,26 @@
-package ru.emfataliev.request;
+package com.github.emfataliev.request;
 
+import com.github.emfataliev.HttpServletContent;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.web.util.ContentCachingRequestWrapper;
-import ru.emfataliev.HttpServletContent;
-import ru.emfataliev.RepresentableAsString;
 
-/**
- * @author e.fataliev
- * @since 25.11.2019
- */
 @RequiredArgsConstructor
-public class RequestPayload implements RepresentableAsString {
+public class RequestPayload {
 
     private final ContentCachingRequestWrapper request;
+    private final int payloadMaxLength;
 
-    @Override
     @SneakyThrows
     public String asString() {
         return Optional.ofNullable(request)
                 .map(contentCachedRequest ->
                         new HttpServletContent(
                                 contentCachedRequest.getContentAsByteArray(),
-                                contentCachedRequest.getCharacterEncoding()
+                                contentCachedRequest.getCharacterEncoding(),
+                                payloadMaxLength
                         ).asString()
-                )
-                .orElse("");
+                ).orElse("");
     }
 }

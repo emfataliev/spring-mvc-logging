@@ -1,13 +1,9 @@
-package ru.emfataliev.response;
+package com.github.emfataliev.response;
 
 import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 
-/**
- * @author e.fataliev
- * @since 25.11.2019
- */
 @RequiredArgsConstructor
 public class ContentCachedResponse {
 

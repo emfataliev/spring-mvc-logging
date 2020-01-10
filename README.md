@@ -37,9 +37,11 @@ public class MvcLoggingConfiguration {
 
     @Bean
     public MvcLoggingFilter mvcLoggingFilter(RequestId requestId) {
-        String endpointsPattern = "*/api/v2.0/*";
-        int payloadMaxLength = 16384;
-        return new MvcLoggingFilter(requestId, payloadMaxLength, endpointsPattern, HttpHeaders.AUTHORIZATION, HttpHeaders.COOKIE);
+        // Pattern for logging requests */api/v2.0/*  
+        String logEndpointsPattern = ".*\\/api\\/v2\\.0\\/.*";
+        int logMessageMaxLength = 16384;
+        String[] excludeLoggingHeaders = new String[]{HttpHeaders.AUTHORIZATION, HttpHeaders.COOKIE};
+        return new MvcLoggingFilter(requestId, logMessageMaxLength, logEndpointsPattern, excludeLoggingHeaders);
     }
 }
 ```
